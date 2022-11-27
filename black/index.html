@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html style="width: 100%; height: 100%;">
+    <script>
+        function toggleFullscreen(){
+            isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullscreenElement || document.msFullscreenElement;
+            console.log(isFullScreen);
+            if (isFullScreen){
+                console.log("Closing fullscreen");
+                closeFullscreen();
+            } else {
+                console.log("Opening fullscreen");
+                openFullscreen();
+            }
+        }
+
+        function openFullscreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.mozRequestFullscreen) {
+                document.documentElement.mozRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
+        /* Close fullscreen */
+        function closeFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+    </script>
+    <head>
+        <title>Black screen</title>
+    </head>
+    <body style="background-color: black;width: 100%; height: 100%;" onclick="toggleFullscreen();">
+        
+    </body>
+</html>
